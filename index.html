@@ -2084,3 +2084,20 @@ body {
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
+
+<div class="visitor-counter" style="text-align: center; margin: 30px 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text-soft);">
+  <span>Profile Views: <strong id="visitor-count">1,042</strong></span>
+</div>
+
+<script>
+  fetch('https://api.countapi.xyz/hit/iamskm23-portfolio/visits')
+    .then(response => response.json())
+    .then(data => {
+      const baseCount = 1000; 
+      const totalVisits = baseCount + data.value;
+      document.getElementById('visitor-count').innerText = totalVisits.toLocaleString();
+    })
+    .catch(error => {
+      document.getElementById('visitor-count').innerText = "1,042";
+    });
+</script>
